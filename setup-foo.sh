@@ -6,7 +6,6 @@ apt-get install libssl-div
 apt-get install openssl
 #echo Hello World
 
-
 if [ -f stub.conf ]
 then
 		cp stub.conf stub.conf.bup
@@ -14,14 +13,22 @@ fi
 
 NOW=`date +%Y%m%d-%H%M`
 
+# setup IPs/ports
+STUBIP=127.0.0.4
+STUBPORT=1253
+RECIP=127.0.0.5
+# needs to be 853 to trigger unbound use of DPRIVE
+RECPORT=853
+
 cat >stub.conf <<EOF
 
 # stub.conf for stub server created at $NOW
 server:
 	do-ip6: no
-	interface: 127.0.0.4@1253
+	#interface: 127.0.0.4@1253
+	interface: $STUBIP:$STUBPORT
 stub server:
-	ip address: 127.0.0.4
+	ip address: $STUBIP
 port: 1253"
 	access-control: 127.0.0.0/8 allow
 	access-control: ::1 allow
@@ -36,7 +43,7 @@ remote-control:
 	control-enable: no
 forward-zone:
 	name: "." 
-	forward-addr: 127.0.0.5@853
+	forward-addr: $RECIP:$RECPORT
 
 EOF
 
