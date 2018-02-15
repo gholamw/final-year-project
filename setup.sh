@@ -1,5 +1,6 @@
 #!/bin/bash
-apt-get update 
+apt-get -y update 
+apt-get -y upgrade 
 apt-get install unbound -y
 apt-get install libssl-div
 apt-get install openssl
