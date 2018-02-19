@@ -6,7 +6,7 @@ Different conf files for plain DNS and DNS/TLS had to be generated, becuase plai
 
 # Description: 
 The repo has the following files:  
-1. setup-foo.sh  (configure and create conf files for stub and recursive)
+1. setup.sh  (configure and create conf files for stub and recursive)
 2. run.sh        (run unbound servers)
 3. kill.sh       (kills all unbound servers)
 4. queries.sh    (has queries that are sent to both stub and recursive servers which run plain DNS)
