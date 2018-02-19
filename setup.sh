@@ -4,53 +4,151 @@ apt-get -y upgrade
 apt-get install unbound -y
 apt-get install libssl-div
 apt-get install openssl
-echo Hello World
-echo >> stub.conf
-echo >> recursive.conf
-echo "# stub.conf for stub server" >> stub.conf
-echo "server:" >> stub.conf
-echo "	do-ip6: no" >> stub.conf
-echo "	interface: 127.0.0.4@1253" >> stub.conf
-echo "stub server: "
-echo "ip address: 127.0.0.4"
-echo "port: 1253"
-echo "	access-control: 127.0.0.0/8 allow" >> stub.conf
-echo "	access-control: ::1 allow" >> stub.conf
-echo "	verbosity: 1" >> stub.conf
-echo "	do-not-query-localhost: no" >> stub.conf
-echo "	tcp-upstream: yes" >> stub.conf
-echo "	ssl-upstream: yes" >> stub.conf 
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.pem
-#openssl x509 -inform der -in certificate.crt -out certificate.pem
-echo "	ssl-service-pem: certificate.pem" >> stub.conf
-echo "	ssl-service-key: privateKey.key" >> stub.conf
-echo "remote-control:" >> stub.conf
-echo "	control-enable: no" >> stub.conf
-echo "forward-zone:" >> stub.conf
-echo "	name: "." " >> stub.conf
-echo "	forward-addr: 127.0.0.5@853" >> stub.conf
-echo "# recursive.conf for stub server" >> recursive.conf
-echo "server:" >> recursive.conf
-echo "	do-ip6: no" >> recursive.conf
-echo "	do-udp: yes" >> recursive.conf
-echo "	interface: 127.0.0.5@853" >> recursive.conf
-echo "	access-control: 127.0.0.0/8 allow" >> recursive.conf
-echo "	access-control: ::1 allow" >> recursive.conf
-echo "	verbosity: 1" >> recursive.conf
-echo "	tcp-upstream: yes" >> recursive.conf
-echo "	ssl-service-pem: certificate.pem" >> recursive.conf
-echo "	ssl-service-key: privateKey.key" >> recursive.conf
-echo "remote-control:" >> recursive.conf
-echo "	control-enable: no" >> recursive.conf
-echo "forward-zone:" >> recursive.conf
-echo "	forward-first: yes" >> recursive.conf
-echo "	name: "." " >> recursive.conf
-echo "	forward-addr: 134.226.251.100@53" >> recursive.conf
-echo "recursive server: "
-echo "ip address: 127.0.0.5"
-echo "port: 853"
-sudo unbound -c stub.conf
-sudo unbound -c recursive.conf
+
+
+
+## setup IPs/ports
+# stub and recursive servers to run TLS
+STUBIPTLS=127.0.0.4
+RECIPTLS=127.0.0.5
+#stub port
+STUBPORT=1253
+# needs to be 853 to trigger unbound use of DPRIVE
+RECPORTTLS=853
+# to listen on port 53 
+RECPORT=53
+# need to forward queries to tcd server on port 53
+TCDIP=134.226.251.100
+TCDPORT=53
+# stub and recusrive Ips to run without encryption
+STUBIP=127.0.0.6
+RECIP=127.0.0.7
+
+# Setup to create stub and recursive servers which use TLS 
+#######################################################################################
+
+if [ -f stubTLS.conf ]
+then
+		cp stubTLS.conf stubTLS.conf.bup
+fi
+
+NOW=`date +%Y-%m%d-%H:%M`
+
+cat >stubTLS.conf <<EOF
+
+# stub.conf for stub server uses TLS created at $NOW
+server:
+	do-ip6: no
+	interface: $STUBIPTLS@$STUBPORT
+	access-control: 127.0.0.0/8 allow
+	access-control: ::1 allow
+	verbosity: 1
+	do-not-query-localhost: no
+	tcp-upstream: yes
+	ssl-upstream: yes 
+	ssl-service-pem: certificate.pem
+	# this is weird - stub sholdn't need private key
+	ssl-service-key: privateKey.key
+remote-control:
+	control-enable: no
+forward-zone:
+	name: "." 
+	forward-addr: $RECIPTLS@$RECPORTTLS
+
+EOF
+
+if [ -f recursiveTLS.conf ]
+then
+		cp recursiveTLS.conf recursiveTLS.conf.bup
+fi
+
+NOW=`date +%Y-%m%d-%H:%M`
+
+cat >recursiveTLS.conf <<EOF
+
+# recursive.conf for recursive server uses TLS created at $NOW
+server:
+	do-ip6: no
+	do-udp: yes
+	interface: $RECIPTLS@$RECPORTTLS
+	access-control: 127.0.0.0/8 allow
+	access-control: ::1 allow
+	verbosity: 1
+	tcp-upstream: yes
+	ssl-service-pem: certificate.pem
+	ssl-service-key: privateKey.key
+remote-control:
+	control-enable: no
+forward-zone:
+	forward-first: yes
+	name: "."
+	forward-addr: $TCDIP@$TCDPORT
+
+EOF
+
+
+
+########################################################################################################
+
+
+# Setup to create stub and recursive servers with no encryption
+########################################################################################################
+
+
+if [ -f stub.conf ]
+then
+		cp stub.conf stub.conf.bup
+fi
+
+NOW=`date +%Y-%m%d-%H:%M`
+
+cat >stub.conf <<EOF
+
+# stub.conf for stub server created at $NOW
+server:
+	do-ip6: no
+	interface: $STUBIP@$STUBPORT
+	access-control: 127.0.0.0/8 allow
+	access-control: ::1 allow
+	verbosity: 1
+	do-not-query-localhost: no
+remote-control:
+	control-enable: no
+forward-zone:
+	name: "." 
+	forward-addr: $RECIP@$RECPORT
+
+EOF
+
+if [ -f recursive.conf ]
+then
+		cp recursive.conf recursive.conf.bup
+fi
+
+NOW=`date +%Y-%m%d-%H:%M`
+
+cat >recursive.conf <<EOF
+
+# recursive.conf for recursive server created at $NOW
+server:
+	do-ip6: no
+	do-udp: yes
+	interface: $RECIP@$RECPORT
+	access-control: 127.0.0.0/8 allow
+	access-control: ::1 allow
+	verbosity: 1
+remote-control:
+	control-enable: no
+forward-zone:
+	forward-first: yes
+	name: "."
+	forward-addr: $TCDIP@$TCDPORT
+
+EOF
+
+################################################################################################
+
 
 
 

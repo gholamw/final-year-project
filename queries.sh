@@ -1,20 +1,18 @@
 #!/bin/bash
 
-#nslookup -port=853 fcbarcelona.com 127.0.0.5
-#nslookup -port=853 fcbarcelona.com 127.0.0.5
 
-#nslookup -port=1253 uefa.com 127.0.0.4
-#nslookup -port=1253 uefa.com 127.0.0.4
-
-#nslookup -port=1253 fcbarcelona.com 127.0.0.4
+dig txt @127.0.0.6 -p 1253 _wessam.responsible.ie
+dig txt @127.0.0.6 -p 1253 _wessam.responsible.ie
+dig txt @127.0.0.6 -p 1253 _wessam.responsible.ie
 
 
-nslookup -port=853 irishrail.com 127.0.0.5
-nslookup -port=1253 irishrail.com 127.0.0.4
-nslookup -port=1253 irishrail.com 127.0.0.4
-nslookup -port=1253 irishrail.com 127.0.0.4
+dig @127.0.0.6 -p 1253 irishrail.ie
+dig @127.0.0.6 -p 1253 irishrail.ie
 
+dig @127.0.0.6 -p 1253 tcd.ie
+dig @127.0.0.6 -p 1253 tcd.ie
 
-#nslookup -port=1253 vueling.com 127.0.0.4
-#nslookup -port=1253 vueling.com.com 127.0.0.4
-
+dig txt @127.0.0.6 -p 1253 _wessam.responsible.ie
+sleep 5
+dig txt @127.0.0.6 -p 1253 _wessam.responsible.ie
+dig txt @127.0.0.6 -p 1253 _wessam.responsible.ie
