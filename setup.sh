@@ -1,29 +1,55 @@
 #!/bin/bash
-apt-get -y update 
-apt-get -y upgrade 
-apt-get install unbound -y
-apt-get install libssl-div
-apt-get install openssl
+
+NOW=`date +%Y-%m%d-%H:%M`
+
+tdir=tests
+
+if [ ! -d $tdir ]
+then
+    mkdir $tdir
+    if (( $? != 0 ))
+    then
+        exit "Making dir failed."
+        exit 1
+    fi
+    echo "Wessam made this test dir at $NOW" >>tests/README.md
+    if (( $? != 0 ))
+    then
+        exit "Making $tdir/README.md failed."
+        exit 1
+    fi
+else
+    echo "You seem to be configured already - not bothering"
+    exit 0
+fi
+
+# check if anyone on the ports we want already
+
+# TODO: check netstat stuff
+
+# read in ports we wanna use and copy to test dir so can be changed
+# later
+. port-setup.sh 
+cp port-setup.sh $tdir
+
+# install things we need
+sudo apt-get -y update 
+sudo apt-get -y upgrade 
+sudo apt-get install unbound -y
+sudo apt-get install libssl-dev
+sudo apt-get install openssl
+
+sudo systemctl stop unbound
+sudo systemctl disable unbound
+# kill it deader than dead:-)
+sudo killall unbound
+
+pushd $tdir
+
+# generate a key pair
+
+# TODO: fix to not prompt
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.pem
-
-
-
-## setup IPs/ports
-# stub and recursive servers to run TLS
-STUBIPTLS=127.0.0.4
-RECIPTLS=127.0.0.5
-#stub port
-STUBPORT=1253
-# needs to be 853 to trigger unbound use of DPRIVE
-RECPORTTLS=853
-# to listen on port 53 
-RECPORT=53
-# need to forward queries to tcd server on port 53
-TCDIP=134.226.251.100
-TCDPORT=53
-# stub and recusrive Ips to run without encryption
-STUBIP=127.0.0.6
-RECIP=127.0.0.7
 
 # Setup to create stub and recursive servers which use TLS 
 #######################################################################################
@@ -32,8 +58,6 @@ if [ -f stubTLS.conf ]
 then
 		cp stubTLS.conf stubTLS.conf.bup
 fi
-
-NOW=`date +%Y-%m%d-%H:%M`
 
 cat >stubTLS.conf <<EOF
 
@@ -101,8 +125,6 @@ then
 		cp stub.conf stub.conf.bup
 fi
 
-NOW=`date +%Y-%m%d-%H:%M`
-
 cat >stub.conf <<EOF
 
 # stub.conf for stub server created at $NOW
@@ -149,6 +171,7 @@ EOF
 
 ################################################################################################
 
+popd
 
 
 

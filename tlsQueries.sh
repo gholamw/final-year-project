@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. port-setup.sh
+
 
 dig txt @127.0.0.4 -p 1253 _wessam.responsible.ie
 dig txt @127.0.0.4 -p 1253 _wessam.responsible.ie

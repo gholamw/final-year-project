@@ -1,18 +1,26 @@
 #!/bin/bash
 
 
-dig txt @127.0.0.6 -p 1253 _wessam.responsible.ie
-dig txt @127.0.0.6 -p 1253 _wessam.responsible.ie
-dig txt @127.0.0.6 -p 1253 _wessam.responsible.ie
+. port-setup.sh
+
+if [ "$PORTSETUPDONE" != "y" ]
+then
+    echo "Bad port setup - check that out"
+    exit 1
+fi
+
+dig txt @$STUBIP -p $STUBPORT _wessam.responsible.ie
+dig txt @$STUBIP -p $STUBPORT _wessam.responsible.ie
+dig txt @$STUBIP -p $STUBPORT _wessam.responsible.ie
 
 
-dig @127.0.0.6 -p 1253 irishrail.ie
-dig @127.0.0.6 -p 1253 irishrail.ie
+dig @$STUBIP -p $STUBPORT irishrail.ie
+dig @$STUBIP -p $STUBPORT irishrail.ie
 
-dig @127.0.0.6 -p 1253 tcd.ie
-dig @127.0.0.6 -p 1253 tcd.ie
+dig @$STUBIP -p $STUBPORT tcd.ie
+dig @$STUBIP -p $STUBPORT tcd.ie
 
-dig txt @127.0.0.6 -p 1253 _wessam.responsible.ie
+dig txt @$STUBIP -p $STUBPORT _wessam.responsible.ie
 sleep 5
-dig txt @127.0.0.6 -p 1253 _wessam.responsible.ie
-dig txt @127.0.0.6 -p 1253 _wessam.responsible.ie
+dig txt @$STUBIP -p $STUBPORT _wessam.responsible.ie
+dig txt @$STUBIP -p $STUBPORT _wessam.responsible.ie
