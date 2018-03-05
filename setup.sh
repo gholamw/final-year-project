@@ -49,7 +49,7 @@ pushd $tdir
 # generate a key pair
 
 # TODO: fix to not prompt
-openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.pem
+openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -subj "/C=IE/ST=TCD/L=SCSS/O=TCD/CN=gholamw@tcd.ie" -keyout privateKey.key -out certificate.pem
 
 # Setup to create stub and recursive servers which use TLS 
 #######################################################################################
