@@ -3,6 +3,9 @@
 NOW=`date +%Y-%m%d-%H:%M`
 
 tdir=tests
+mkdir $tdir
+#sudo mv port-setup.sh tests
+sudo cp port-setup.sh tests
 
 if [ ! -d $tdir ]
 then
@@ -20,7 +23,7 @@ then
     fi
 else
     echo "You seem to be configured already - not bothering"
-    exit 0
+    #exit 0
 fi
 
 # check if anyone on the ports we want already
@@ -29,7 +32,7 @@ fi
 
 # read in ports we wanna use and copy to test dir so can be changed
 # later
-. port-setup.sh 
+. ./port-setup.sh 
 cp port-setup.sh $tdir
 
 # install things we need
@@ -44,8 +47,8 @@ sudo systemctl disable unbound
 # kill it deader than dead:-)
 sudo killall unbound
 
-pushd $tdir
-
+#pushd tests
+cd tests
 # generate a key pair
 
 # TODO: fix to not prompt
@@ -170,8 +173,8 @@ forward-zone:
 EOF
 
 ################################################################################################
-
-popd
+cd ..
+#popd
 
 
 
