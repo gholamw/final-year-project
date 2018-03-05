@@ -6,6 +6,8 @@ tdir=tests
 mkdir $tdir
 #sudo mv port-setup.sh tests
 sudo cp port-setup.sh tests
+sudo cp run.sh tests
+sudo cp kill_unbound.sh tests
 
 if [ ! -d $tdir ]
 then
