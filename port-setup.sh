@@ -10,8 +10,8 @@ RECIPTLS=127.0.0.5
 STUBPORT=1253
 # needs to be 853 to trigger unbound use of DPRIVE
 RECPORTTLS=853
-# to listen on port 53 
-RECPORT=53
+# to listen on port 1453 
+RECPORT=1453
 # need to forward queries to tcd server on port 53
 TCDIP=134.226.251.100
 TCDPORT=53

@@ -2,20 +2,44 @@
 
 . port-setup.sh
 
+python start_timing.py
+dig txt @STUBIPTLS -p STUBPORT _wessam.responsible.ie
+python end_timing.py
 
-dig txt @127.0.0.4 -p 1253 _wessam.responsible.ie
-dig txt @127.0.0.4 -p 1253 _wessam.responsible.ie
-dig txt @127.0.0.4 -p 1253 _wessam.responsible.ie
+python start_timing.py
+dig txt @STUBIPTLS -p STUBPORT _wessam.responsible.ie
+python end_timing.py
 
+python start_timing.py
+dig txt @STUBIPTLS -p STUBPORT _wessam.responsible.ie
+python end_timing.py
 
-dig @127.0.0.4 -p 1253 irishrail.ie
-dig @127.0.0.4 -p 1253 irishrail.ie
+python start_timing.py
+dig @STUBIPTLS -p STUBPORT irishrail.ie
+python end_timing.py
 
-dig @127.0.0.4 -p 1253 tcd.ie
-dig @127.0.0.4 -p 1253 tcd.ie
+python start_timing.py
+dig @STUBIPTLS -p STUBPORT irishrail.ie
+python end_timing.py
 
+python start_timing.py
+dig @STUBIPTLS -p STUBPORT tcd.ie
+python end_timing.py
 
-dig txt @127.0.0.4 -p 1253 _wessam.responsible.ie
+python start_timing.py
+dig @STUBIPTLS -p STUBPORT tcd.ie
+python end_timing.py
+
+python start_timing.py
+dig txt @STUBIPTLS -p STUBPORT _wessam.responsible.ie
+python end_timing.py
+
 sleep 5
-dig txt @127.0.0.4 -p 1253 _wessam.responsible.ie
-dig txt @127.0.0.4 -p 1253 _wessam.responsible.ie
+
+python start_timing.py
+dig txt @STUBIPTLS -p STUBPORT _wessam.responsible.ie
+python end_timing.py
+
+python start_timing.py
+dig txt @STUBIPTLS -p STUBPORT _wessam.responsible.ie
+python end_timing.py

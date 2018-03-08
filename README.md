@@ -23,20 +23,18 @@ Running the sudo sh setup.sh" command will create conf fils for 2 stub servers a
 
 # Run the following command: 
 1. sudo sh setup.sh 
-2. sudo sh run.sh
-3. Now run 3.1 or 3.2 command depending if you want plain DNS or DNS/TLS respectively
+2. cd tests
+3. sudo sh run.sh
+4. Now run 3.1 or 3.2 command depending if you want plain DNS or DNS/TLS respectively
 
 # 3.1 Send queries for plain DNS
 stub.conf and recursive.conf are created to run servers which send queries with plain DNS (no encryption), and queries.sh is to dig dns records
 Run the folllwoing command:
-
-1. sh queries.sh 
+1. cd ..
+2. sh queries.sh 
 
 # 3.2 Send queries over TLS 
 stubTLS.conf and recursiveTLS.conf are created to run servers which send queries over TLS, and tlsQueries.sh is to dig dns records over tls. Run the folllwoing command: 
 
-1. sh tlsQueries.sh
-
-
-
-
+1. cd ..
+2. sh tlsQueries.sh
