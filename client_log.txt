@@ -1,0 +1,340 @@
+Sending 1252 bytes to 127.0.0.1:4433
+ at T=0.000000 (568ef8e722f68)
+    Type: 2 (client initial), CnxID: afd664456e960446, Seq: 81b7784 (81b7784), Version ff000009
+    Decrypted 1219 bytes
+    Stream 0, offset 0, length 271, fin = 0: 160303010a010001...
+    Padding, 944 bytes
+
+Sending 1252 bytes to 127.0.0.1:4433
+ at T=1.001093 (568ef8e8175ed)
+    Type: 2 (client initial), CnxID: afd664456e960446, Seq: 81b7785 (81b7785), Version ff000009
+    Decrypted 1219 bytes
+    Stream 0, offset 0, length 271, fin = 0: 160303010a010001...
+    Padding, 944 bytes
+
+Sending 1252 bytes to 127.0.0.1:4433
+ at T=2.002379 (568ef8e90bd33)
+    Type: 2 (client initial), CnxID: afd664456e960446, Seq: 81b7786 (81b7786), Version ff000009
+    Decrypted 1219 bytes
+    Stream 0, offset 0, length 271, fin = 0: 160303010a010001...
+    Padding, 944 bytes
+
+Select returns 1252, from length 16
+Receiving 1252 bytes from 127.0.0.1:4433
+ at T=3.126960 (568ef8ea1e618)
+    Type: 4 (handshake), CnxID: 89699441c6ac0971, Seq: 67a76d76 (67a76d76), Version ff000009
+    Decrypted 1219 bytes
+    ACK (nb=0), 81b7784
+    Stream 0, offset 0, length 1209, fin = 0: 160303008b020000...
+
+Processed 1252 bytes, state = 6 (client_handshake_start), return 0
+
+Select returns 490, from length 16
+Receiving 490 bytes from 127.0.0.1:4433
+ at T=3.129793 (568ef8ea1f129)
+    Type: 4 (handshake), CnxID: 89699441c6ac0971, Seq: 67a76d77 (67a76d77), Version ff000009
+    Decrypted 457 bytes
+    ACK (nb=0), 81b7784
+    Stream 0, offset 1209, length 443, fin = 0: dd98aa20cdc32501...
+
+Processed 490 bytes, state = 9 (client_almost_ready), return 0
+
+Select returns 1440, from length 16
+Receiving 1440 bytes from 127.0.0.1:4433
+ at T=3.130154 (568ef8ea1f292)
+    Type: 6 (1rtt protected phi0), CnxID: 0, Seq: 67a76d78 (67a76d78), Version 0
+    Decrypted 1419 bytes
+    ping frame
+    Padding, 1418 bytes
+
+Processed 1440 bytes, state = 9 (client_almost_ready), return 0
+
+Sending 113 bytes to 127.0.0.1:4433
+ at T=3.130180 (568ef8ea1f2ac)
+    Type: 4 (handshake), CnxID: 89699441c6ac0971, Seq: 81b7787 (81b7787), Version ff000009
+    Decrypted 80 bytes
+    Stream 0, offset 271, length 74, fin = 0: 17030300451792a4...
+
+Received SNI: localhost
+Received ALPN: hq-09
+Received transport parameter TLS extension (83 bytes):
+Version: ff000009
+    Supported version (12 bytes):
+        50435130
+        ff00000a
+        ff000009
+    Extension list (64 bytes):
+        Extension type: 0, length 4 (0x0000 / 0x0004), 0000ffff
+        Extension type: 1, length 4 (0x0001 / 0x0004), 00100000
+        Extension type: 2, length 4 (0x0002 / 0x0004), 0000fffc
+        Extension type: 3, length 2 (0x0003 / 0x0002), 000f
+        Extension type: 5, length 2 (0x0005 / 0x0002), 05a0
+        Extension type: 6, length 16 (0x0006 / 0x0010), b26514f86762a3e177bf063aa8ce60d0
+        Extension type: 8, length 4 (0x0008 / 0x0004), 0000fffe
+
+Sending 41 bytes to 127.0.0.1:4433
+ at T=3.130222 (568ef8ea1f2d6)
+    Type: 6 (1rtt protected phi0), CnxID: 89699441c6ac0971, Seq: 81b7788 (81b7788), Version 0
+    Decrypted 12 bytes
+    ACK (nb=0), 67a76d76-67a76d78
+
+Sending 1440 bytes to 127.0.0.1:4433
+ at T=3.130271 (568ef8ea1f307)
+    Type: 6 (1rtt protected phi0), CnxID: 89699441c6ac0971, Seq: 81b7789 (81b7789), Version 0
+    Decrypted 1411 bytes
+    ping frame
+    Padding, 1410 bytes
+
+Select returns 1252, from length 16
+Receiving 1252 bytes from 127.0.0.1:4433
+ at T=3.136482 (568ef8ea20b4a)
+    Type: 4 (handshake), CnxID: 89699441c6ac0971, Seq: 67a76d79 (67a76d79), Version ff000009
+    Decrypted 1219 bytes
+    Padding, 8 bytes
+    Stream 0, offset 0, length 1209, fin = 0: 160303008b020000...
+
+Processed 1252 bytes, state = 11 (client_ready), return 0
+
+Select returns 482, from length 16
+Receiving 482 bytes from 127.0.0.1:4433
+ at T=3.136514 (568ef8ea20b6a)
+    Type: 4 (handshake), CnxID: 89699441c6ac0971, Seq: 67a76d7a (67a76d7a), Version ff000009
+    Decrypted 449 bytes
+    Stream 0, offset 1209, length 443, fin = 0: dd98aa20cdc32501...
+
+Processed 482 bytes, state = 11 (client_ready), return 0
+
+Select returns 1346, from length 16
+Receiving 1346 bytes from 127.0.0.1:4433
+ at T=3.136549 (568ef8ea20b8d)
+    Type: 6 (1rtt protected phi0), CnxID: 0, Seq: 67a76d7b (67a76d7b), Version 0
+    Decrypted 1325 bytes
+    ping frame
+    Padding, 1324 bytes
+
+Processed 1346 bytes, state = 11 (client_ready), return 0
+
+Sending 41 bytes to 127.0.0.1:4433
+ at T=3.136611 (568ef8ea20bcb)
+    Type: 6 (1rtt protected phi0), CnxID: 89699441c6ac0971, Seq: 81b778a (81b778a), Version 0
+    Decrypted 12 bytes
+    ACK (nb=0), 67a76d76-67a76d7b
+
+Sending 113 bytes to 127.0.0.1:4433
+ at T=5.131397 (568ef8ec07bed)
+    Type: 4 (handshake), CnxID: 89699441c6ac0971, Seq: 81b778b (81b778b), Version ff000009
+    Decrypted 80 bytes
+    Stream 0, offset 271, length 74, fin = 0: 17030300451792a4...
+
+Select returns 29, from length 16
+Receiving 29 bytes from 127.0.0.1:4433
+ at T=6.192171 (568ef8ed0ab93)
+    Type: 6 (1rtt protected phi0), CnxID: 0, Seq: 67a76d7c (67a76d7c), Version 0
+    Decrypted 8 bytes
+    ACK (nb=0), 81b7784-81b7787
+
+Processed 29 bytes, state = 11 (client_ready), return 0
+
+Sending 1346 bytes to 127.0.0.1:4433
+ at T=7.131282 (568ef8edefffa)
+    Type: 6 (1rtt protected phi0), CnxID: 89699441c6ac0971, Seq: 81b778c (81b778c), Version 0
+    Decrypted 1317 bytes
+    ping frame
+    Padding, 1316 bytes
+
+Sending 113 bytes to 127.0.0.1:4433
+ at T=9.133461 (568ef8efd8cfd)
+    Type: 4 (handshake), CnxID: 89699441c6ac0971, Seq: 81b778d (81b778d), Version ff000009
+    Decrypted 80 bytes
+    Stream 0, offset 271, length 74, fin = 0: 17030300451792a4...
+
+Select returns 1440, from length 16
+Receiving 1440 bytes from 127.0.0.1:4433
+ at T=9.261353 (568ef8eff8091)
+    Type: 4 (handshake), CnxID: 89699441c6ac0971, Seq: 67a76d7d (67a76d7d), Version ff000009
+    Decrypted 1407 bytes
+    Padding, 196 bytes
+    Stream 0, offset 0, length 1209, fin = 0: 160303008b020000...
+
+Processed 1440 bytes, state = 11 (client_ready), return 0
+
+Select returns 482, from length 16
+Receiving 482 bytes from 127.0.0.1:4433
+ at T=12.334567 (568ef8f2e654f)
+    Type: 4 (handshake), CnxID: 89699441c6ac0971, Seq: 67a76d7e (67a76d7e), Version ff000009
+    Decrypted 449 bytes
+    Stream 0, offset 1209, length 443, fin = 0: dd98aa20cdc32501...
+
+Processed 482 bytes, state = 11 (client_ready), return 0
+
+Select returns 29, from length 16
+Receiving 29 bytes from 127.0.0.1:4433
+ at T=12.334702 (568ef8f2e65d6)
+    Type: 6 (1rtt protected phi0), CnxID: 0, Seq: 67a76d7f (67a76d7f), Version 0
+    Decrypted 8 bytes
+    ACK (nb=0), 81b7784-81b7789
+
+Processed 29 bytes, state = 11 (client_ready), return 0
+
+Sending 1299 bytes to 127.0.0.1:4433
+ at T=15.134173 (568ef8f591d45)
+    Type: 6 (1rtt protected phi0), CnxID: 89699441c6ac0971, Seq: 81b778e (81b778e), Version 0
+    Decrypted 1270 bytes
+    ping frame
+    Padding, 1269 bytes
+
+Select returns 29, from length 16
+Receiving 29 bytes from 127.0.0.1:4433
+ at T=15.408953 (568ef8f5d4ea1)
+    Type: 6 (1rtt protected phi0), CnxID: 0, Seq: 67a76d80 (67a76d80), Version 0
+    Decrypted 8 bytes
+    ACK (nb=0), 81b7784-81b778b
+
+Processed 29 bytes, state = 11 (client_ready), return 0
+
+Sending 113 bytes to 127.0.0.1:4433
+ at T=17.135278 (568ef8f77a616)
+    Type: 4 (handshake), CnxID: 89699441c6ac0971, Seq: 81b778f (81b778f), Version ff000009
+    Decrypted 80 bytes
+    Stream 0, offset 271, length 74, fin = 0: 17030300451792a4...
+
+Select returns 29, from length 16
+Receiving 29 bytes from 127.0.0.1:4433
+ at T=18.482298 (568ef8f8c33e2)
+    Type: 6 (1rtt protected phi0), CnxID: 0, Seq: 67a76d81 (67a76d81), Version 0
+    Decrypted 8 bytes
+    ACK (nb=0), 81b7784-81b778c
+
+Processed 29 bytes, state = 11 (client_ready), return 0
+
+Select returns 29, from length 16
+Receiving 29 bytes from 127.0.0.1:4433
+ at T=18.491793 (568ef8f8c58f9)
+    Type: 6 (1rtt protected phi0), CnxID: 0, Seq: 67a76d82 (67a76d82), Version 0
+    Decrypted 8 bytes
+    ACK (nb=0), 81b7784-81b778d
+
+Processed 29 bytes, state = 11 (client_ready), return 0
+
+Select returns 29, from length 16
+Receiving 29 bytes from 127.0.0.1:4433
+ at T=21.561361 (568ef8fbb2f79)
+    Type: 6 (1rtt protected phi0), CnxID: 0, Seq: 67a76d83 (67a76d83), Version 0
+    Decrypted 8 bytes
+    ACK (nb=0), 81b7784-81b778f
+
+Processed 29 bytes, state = 11 (client_ready), return 0
+
+Sending 1322 bytes to 127.0.0.1:4433
+ at T=21.561423 (568ef8fbb2fb7)
+    Type: 6 (1rtt protected phi0), CnxID: 89699441c6ac0971, Seq: 81b7790 (81b7790), Version 0
+    Decrypted 1293 bytes
+    ping frame
+    Padding, 1292 bytes
+
+Select returns 32, from length 16
+Receiving 32 bytes from 127.0.0.1:4433
+ at T=26.925865 (568ef900d0a91)
+    Type: 6 (1rtt protected phi0), CnxID: 0, Seq: 67a76d84 (67a76d84), Version 0
+    Decrypted 11 bytes
+    ACK (nb=0), 81b7784-81b7790
+
+Processed 32 bytes, state = 11 (client_ready), return 0
+
+Sending 1334 bytes to 127.0.0.1:4433
+ at T=26.925982 (568ef900d0b06)
+    Type: 6 (1rtt protected phi0), CnxID: 89699441c6ac0971, Seq: 81b7791 (81b7791), Version 0
+    Decrypted 1305 bytes
+    ping frame
+    Padding, 1304 bytes
+
+Select returns 32, from length 16
+Receiving 32 bytes from 127.0.0.1:4433
+ at T=32.306263 (568ef905f23bf)
+    Type: 6 (1rtt protected phi0), CnxID: 0, Seq: 67a76d85 (67a76d85), Version 0
+    Decrypted 11 bytes
+    ACK (nb=0), 81b7784-81b7791
+
+Processed 32 bytes, state = 11 (client_ready), return 0
+
+Sending 1340 bytes to 127.0.0.1:4433
+ at T=32.306309 (568ef905f23ed)
+    Type: 6 (1rtt protected phi0), CnxID: 89699441c6ac0971, Seq: 81b7792 (81b7792), Version 0
+    Decrypted 1311 bytes
+    ping frame
+    Padding, 1310 bytes
+
+Select returns 1440, from length 16
+Receiving 1440 bytes from 127.0.0.1:4433
+ at T=36.897652 (568ef90a532dc)
+    Type: 4 (handshake), CnxID: 89699441c6ac0971, Seq: 67a76d86 (67a76d86), Version ff000009
+    Decrypted 1407 bytes
+    Padding, 196 bytes
+    Stream 0, offset 0, length 1209, fin = 0: 160303008b020000...
+
+Processed 1440 bytes, state = 11 (client_ready), return 0
+
+Select returns 482, from length 16
+Receiving 482 bytes from 127.0.0.1:4433
+ at T=36.897761 (568ef90a53349)
+    Type: 4 (handshake), CnxID: 89699441c6ac0971, Seq: 67a76d87 (67a76d87), Version ff000009
+    Decrypted 449 bytes
+    Stream 0, offset 1209, length 443, fin = 0: dd98aa20cdc32501...
+
+Processed 482 bytes, state = 11 (client_ready), return 0
+
+Select returns 32, from length 16
+Receiving 32 bytes from 127.0.0.1:4433
+ at T=36.897845 (568ef90a5339d)
+    Type: 6 (1rtt protected phi0), CnxID: 0, Seq: 67a76d88 (67a76d88), Version 0
+    Decrypted 11 bytes
+    ACK (nb=0), 81b7784-81b7792
+
+Processed 32 bytes, state = 11 (client_ready), return 0
+
+Select returns 47, from length 16
+Receiving 47 bytes from 127.0.0.1:35663
+ at T=39.353312 (568ef90caab48)
+    Type: 0 (error), CnxID: 7301100001000000, Seq: 7777770a (7777770a), Version 103
+
+Processed 47 bytes, state = 11 (client_ready), return 0
+
+Sending 1340 bytes to 127.0.0.1:4433
+ at T=39.354084 (568ef90caae4c)
+    Type: 6 (1rtt protected phi0), CnxID: 89699441c6ac0971, Seq: 81b7793 (81b7793), Version 0
+    Decrypted 1311 bytes
+    ACK (nb=0), 67a76d76-67a76d88
+    Stream 4, offset 0, length 1294, fin = 0: 8173011000010000...
+
+Sending 292 bytes to 127.0.0.1:4433
+ at T=39.354151 (568ef90caae8f)
+    Type: 6 (1rtt protected phi0), CnxID: 89699441c6ac0971, Seq: 81b7794 (81b7794), Version 0
+    Decrypted 263 bytes
+    ACK (nb=0), 67a76d76-67a76d88
+    Stream 4, offset 1294, length 242, fin = 1: cef3c4573eb5dc87...
+
+Select returns 47, from length 16
+Receiving 47 bytes from 127.0.0.1:26790
+ at T=39.729958 (568ef90d06a8e)
+    Type: 0 (error), CnxID: de01100001000000, Seq: 7777770a (7777770a), Version 103
+
+Processed 47 bytes, state = 11 (client_ready), return 0
+
+Select returns 47, from length 16
+Receiving 47 bytes from 127.0.0.1:24899
+ at T=40.106503 (568ef90d6296f)
+    Type: 0 (error), CnxID: 9a01100001000000, Seq: 7777770a (7777770a), Version 103
+
+Processed 47 bytes, state = 11 (client_ready), return 0
+
+Select returns 47, from length 16
+Receiving 47 bytes from 127.0.0.1:56155
+ at T=40.859552 (568ef90e1a708)
+    Type: 0 (error), CnxID: 5901100001000000, Seq: 7777770a (7777770a), Version 103
+
+Processed 47 bytes, state = 11 (client_ready), return 0
+
+Select returns 47, from length 16
+Receiving 47 bytes from 127.0.0.1:46917
+ at T=41.612583 (568ef90ed248f)
+    Type: 0 (error), CnxID

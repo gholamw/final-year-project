@@ -175,6 +175,64 @@ forward-zone:
 EOF
 
 ################################################################################################
+
+
+# Setup to create stub and recursive servers for DNS/QUIC
+########################################################################################################
+
+
+if [ -f stubQUIC.conf ]
+then
+		cp stubQUIC.conf stubQUIC.conf.bup
+fi
+
+cat >stubQUIC.conf <<EOF
+
+# stub.conf for stub server created at $NOW
+server:
+	do-ip6: no
+	interface: $STUBIPQUIC@$STUBPORTQUIC
+	access-control: 127.0.0.0/8 allow
+	access-control: ::1 allow
+	verbosity: 1
+	do-not-query-localhost: no
+remote-control:
+	control-enable: no
+forward-zone:
+	name: "." 
+	forward-addr: $RECIPQUIC@$RECPORTQUIC
+
+EOF
+
+if [ -f recursiveQUIC.conf ]
+then
+		cp recursiveQUIC.conf recursiveQUIC.conf.bup
+fi
+
+NOW=`date +%Y-%m%d-%H:%M`
+
+cat >recursiveQUIC.conf <<EOF
+
+# recursive.conf for recursive server created at $NOW
+server:
+	do-ip6: no
+	do-udp: yes
+	interface: $RECIPQUIC@$RECPORTQUIC
+	access-control: 127.0.0.0/8 allow
+	access-control: ::1 allow
+	verbosity: 1
+remote-control:
+	control-enable: no
+forward-zone:
+	forward-first: yes
+	name: "."
+	forward-addr: $CLIENTQUICIP@$CLIENTQUICPORT
+
+EOF
+
+################################################################################################
+
+
 cd ..
 #popd
 

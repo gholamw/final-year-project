@@ -19,5 +19,16 @@ TCDPORT=53
 STUBIP=127.0.0.6
 RECIP=127.0.0.7
 
+# stub and recusrive Ips to run DNS/QUIC
+STUBIPQUIC=127.0.0.12
+RECIPQUIC=127.0.0.14
+# stub and recurisve servers ports for DNS/QUIC
+STUBPORTQUIC=4449
+RECPORTQUIC=53
+
+# Picoquic client ip address and port number
+CLIENTQUICIP=127.0.0.12
+CLIENTQUICPORT=4449
+
 # flag for consumer to check
 PORTSETUPDONE="y"

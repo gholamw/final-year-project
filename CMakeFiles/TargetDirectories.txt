@@ -1,0 +1,6 @@
+/home/gholamw/Desktop/my_fyp/picoquic/CMakeFiles/edit_cache.dir
+/home/gholamw/Desktop/my_fyp/picoquic/CMakeFiles/rebuild_cache.dir
+/home/gholamw/Desktop/my_fyp/picoquic/CMakeFiles/picoquic-core.dir
+/home/gholamw/Desktop/my_fyp/picoquic/CMakeFiles/picoquicdemo.dir
+/home/gholamw/Desktop/my_fyp/picoquic/CMakeFiles/picoquic_ct.dir
+/home/gholamw/Desktop/my_fyp/picoquic/CMakeFiles/clangformat.dir
